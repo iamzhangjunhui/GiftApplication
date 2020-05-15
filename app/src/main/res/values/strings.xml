@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">进的专属app</string>
+    <string name="hint_input_salary">请输入对应月份的工资(元)</string>
+    <string name="salary_month_after">%d年%d月</string>
+    <string name="select_month">选择月份</string>
+    <string name="salary">工资：</string>
+    <string name="month">月份：</string>
+    <string name="save">保&#160;&#160;&#160;&#160;&#160;&#160;存</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">工资列表</string>
+    <string name="title_notifications">统计</string>
+</resources>

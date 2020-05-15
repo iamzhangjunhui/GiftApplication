@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="view_pickerview_clear">清除</string>
+    <string name="view_time_picker_title">时间选择</string>
+    <string name="view_area_picker_title">地区选择</string>
+    <string name="view_pickerview_bottom">确定</string>
+    <string name="view_pickerview_cancle">取消</string>
+    <string name="view_pickerview_finish">完成</string>
+    <string name="view_pickerview_year">年</string>
+    <string name="view_pickerview_month">月</string>
+    <string name="view_pickerview_day">日</string>
+    <string name="view_pickerview_hours">时</string>
+    <string name="view_pickerview_minutes">分</string>
+    <string name="view_pickerview_seconds">秒</string>
+</resources>
