@@ -13,7 +13,7 @@ class ImageAdapter(datas: List<Int>) : BannerAdapter<Int, ImageAdapter.ImageView
         val param = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
         )
-        imageView.scaleType = ImageView.ScaleType.FIT_END
+        imageView.scaleType = ImageView.ScaleType.FIT_XY
         imageView.layoutParams = param
         return ImageViewHolder(imageView)
     }

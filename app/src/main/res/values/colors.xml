@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">@color/main_color</color>
     <color name="colorAccent">@color/main_color</color>
     <color name="color_black">#FF000000</color>
-    <color name="color_gray">#2F2F2F</color>
+    <color name="color_gray">#5E5D5D</color>
     <color name="main_color">#ff2c9dfc</color>
 </resources>

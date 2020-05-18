@@ -34,20 +34,24 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
                 android:text="@string/month"
-                android:textColor="@color/color_gray"
                 android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/text_select_month"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="1"
                 android:focusable="false"
+                android:layout_marginEnd="5dp"
                 android:focusableInTouchMode="false"
                 android:textColor="@color/main_color"
-                android:textSize="@dimen/text_size"/>
+                android:textSize="@dimen/text_size"
+                tools:text="20"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_fauacukum"/>
 
         </LinearLayout>
 
@@ -65,31 +69,36 @@
                 android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="@string/salary"
-                android:textColor="@color/color_gray"
                 android:textSize="@dimen/text_size" />
 
             <EditText
                 android:id="@+id/edit_salary"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
                 android:hint="@string/hint_input_salary"
                 android:inputType="number"
                 android:text="@={salary}"
-                android:textColor="@color/color_gray"
                 android:textSize="@dimen/text_size" />
+            <ImageView
+                android:id="@+id/image_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/img_clear"
+                android:layout_gravity="center_vertical"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/pickerview_bottom_btn_bg"
+            android:background="@drawable/background_save_btn"
             android:text="@string/save"
-            android:textColor="@android:color/white"
+            android:textColor="@color/main_color"
             android:textSize="@dimen/text_size" />
 
 

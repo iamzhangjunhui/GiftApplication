@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(version = 2, entities = [Salary::class])
+@Database(version = 3, entities = [Salary::class])
 abstract class SalaryDataBase : RoomDatabase() {
     abstract fun getSalaryDao(): SalaryDao
 }

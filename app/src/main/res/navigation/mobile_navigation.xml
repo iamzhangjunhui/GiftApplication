@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.loyo.giftapplication.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.loyo.giftapplication.ui.salary_list.SalarysFragment"
+        android:label="@string/title_salarys"
+        tools:layout="@layout/fragment_salarys" />
 </navigation>

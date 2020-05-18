@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ class HomeFragment : Fragment() {
     var year: Int = 0
     var month: Int = 0
     private lateinit var homeViewModel: HomeViewModel
+    lateinit var calendarSelect: Calendar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -92,10 +94,12 @@ class HomeFragment : Fragment() {
                         .setRangDate(startCalendar, endCalendar)
                         .setType(type).build()
             }
-            timePickerView.setDate(Calendar.getInstance()).setBtnCancelVisible(View.GONE)
+            val initDate =
+                if (this::calendarSelect.isInitialized) calendarSelect else Calendar.getInstance()
+            timePickerView.setDate(initDate).setBtnCancelVisible(View.GONE)
                 .setBtnClearVisible(View.GONE)
                 .setOnTimeSelectListener { date, _ ->
-                    val calendarSelect = Calendar.getInstance()
+                    calendarSelect = Calendar.getInstance()
                     calendarSelect.time = date
                     year = calendarSelect.get(Calendar.YEAR)
                     month = calendarSelect.get(Calendar.MONTH) + 1
@@ -107,22 +111,24 @@ class HomeFragment : Fragment() {
                     timePickerView.dismiss()
                 }.show()
         }
+        image_clear.setOnClickListener {
+            edit_salary.setText("")
+        }
         //保存数据到Room
         btn_save.setOnClickListener {
             val nowSalary = homeViewModel.getSalary().value
             if (!TextUtils.isEmpty(nowSalary)) {
                 val salaryDao = DataBaseUtil.getSalaryDao(requireContext())
                 thread {
-                    salaryDao.insert(Salary(year * 100 + month, nowSalary!!.toFloat()))
-
-                }
-                salaryDao.queryAll().observe(viewLifecycleOwner,
-                    Observer<List<Salary>> {
-                        Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                   val long= salaryDao.insert(Salary(year * 100 + month, nowSalary!!.toInt()))
+                    if (long>0){
+                        btn_save.post {
+                            Toast.makeText(requireContext(), getString(R.string.save_success), Toast.LENGTH_SHORT).show()
+                        }
                     }
-                )
+                }
             } else {
-                Toast.makeText(requireContext(), "请输入该月工资", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.input_salary), Toast.LENGTH_SHORT).show()
             }
         }
 

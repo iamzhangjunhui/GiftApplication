@@ -8,15 +8,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 public class DataBaseUtil {
     companion object {
-        private val migration_2 = object : Migration(1, 2) {
+        private val migration_3 = object : Migration(2, 3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("DROP TABLE IF EXISTS Salary ")
-                database.execSQL("CREATE TABLE  Salary('yearAndMonth' INTEGER PRIMARY KEY NOT NULL,'monthSalary' Float NOT NULL)")
+                database.execSQL("CREATE TABLE  Salary('yearAndMonth' INTEGER PRIMARY KEY NOT NULL,'monthSalary' INTEGER NOT NULL)")
             }
 
         }
         fun getSalaryDao(context: Context): SalaryDao {
-            return Room.databaseBuilder(context, SalaryDataBase::class.java, "datas").addMigrations(migration_2).build().getSalaryDao()
+            return Room.databaseBuilder(context, SalaryDataBase::class.java, "datas").addMigrations(migration_3).build().getSalaryDao()
         }
     }
 }
