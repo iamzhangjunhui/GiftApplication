@@ -2,7 +2,9 @@
     <string name="app_name">进的专属app</string>
     <string name="hint_input_salary">请输入该月份的工资(元)</string>
     <string name="salary_month_after">%d年%d月</string>
+    <string name="salary_year_after">%d年</string>
     <string name="select_month">选择月份</string>
+    <string name="select_year">选择年份</string>
     <string name="salary">工资：</string>
     <string name="month">月份：</string>
     <string name="save">保&#160;&#160;&#160;存</string>
@@ -17,9 +19,13 @@
     <string name="show_month">月份</string>
     <string name="save_success">保存成功</string>
     <string name="input_salary">请输入该月工资</string>
-    <string name="user_define_time">自定义时间段</string>
+    <string name="user_define_time">自定义时间段(不含年终奖)</string>
     <string name="select_end_month">请选择结束月份</string>
     <string name="select_start_month">请选择开始月份</string>
     <string name="total">总计：</string>
     <string name="this_year">今年</string>
+    <string name="select_start_time_first">请先选择开始时间</string>
+    <string name="year_bonus">年终奖</string>
+    <string name="which_year_bonus">%d年终奖</string>
+
 </resources>

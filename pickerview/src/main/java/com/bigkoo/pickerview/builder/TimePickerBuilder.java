@@ -20,11 +20,15 @@ import java.util.Calendar;
 public class TimePickerBuilder {
 
     private PickerOptions mPickerOptions;
+    public static final Calendar startCalendar = Calendar.getInstance();
+    public static final Calendar endCalendar = Calendar.getInstance();
 
     //Required
     public TimePickerBuilder(Context context) {
         mPickerOptions = new PickerOptions(PickerOptions.TYPE_PICKER_TIME);
         mPickerOptions.context = context;
+        startCalendar.set(2010, 0, 1);
+        endCalendar.set(2100, 11, 31);
     }
 
     //Option

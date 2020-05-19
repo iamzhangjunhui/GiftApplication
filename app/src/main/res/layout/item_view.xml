@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:gravity="center"
         tools:text="2020年5月" />
 
@@ -23,6 +23,6 @@
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         tools:text="10000元" />
 </LinearLayout>

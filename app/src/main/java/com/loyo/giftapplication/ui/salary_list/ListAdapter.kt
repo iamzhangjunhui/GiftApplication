@@ -38,8 +38,13 @@ class ListAdapter(val salarys: MutableList<Salary>) :
             holder.itemView.txt_salary.text=context.getString(R.string.month_salary)
         } else {
             val yearMonth = salarys[position].yearAndMonth
-            holder.itemView.txt_month.text =
-                context.getString(R.string.year_and_month, yearMonth / 100, yearMonth % 100)
+            if(yearMonth % 100==13){
+                holder.itemView.txt_month.text =
+                    context.getString(R.string.which_year_bonus, yearMonth / 100)
+            }else {
+                holder.itemView.txt_month.text =
+                    context.getString(R.string.year_and_month, yearMonth / 100, yearMonth % 100)
+            }
             holder.itemView.txt_salary.text =
                 context.getString(R.string.salary_detail, salarys[position].monthSalary)
         }

@@ -7,167 +7,311 @@
 
         <import type="androidx.lifecycle.LiveData" />
 
+        <import type="com.loyo.giftapplication.room_data.QueryResult" />
+
+        <import type="com.loyo.giftapplication.room_data.YearBonusResult" />
+        <import type="com.loyo.giftapplication.room_data.YearBonusMinMaxResult"/>
         <variable
             name="total"
+            type="LiveData&lt;QueryResult>" />
+
+        <variable
+            name="totalYear"
+            type="LiveData&lt;QueryResult>" />
+
+        <variable
+            name="totalDefineYearMonth"
+            type="LiveData&lt;QueryResult>" />
+
+        <variable
+            name="yearBonus"
             type="LiveData&lt;Integer>" />
+
+        <variable
+            name="totalBonus"
+            type="LiveData&lt;YearBonusResult>" />
+        <variable
+            name="totalBonusMinMax"
+            type="LiveData&lt;YearBonusMinMaxResult>" />
 
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
-        tools:context=".ui.dashboard.DashboardFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/total" />
-
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
 
-            <TextView
-                android:id="@+id/txt_total"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text='@{"共"+total+"元"}'
-                tools:text="共0元" />
-
-            <TextView
-                android:id="@+id/txt_total_average"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="平均月工资0元" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/color_gray" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:textColor="@color/main_color"
-                android:text="@string/this_year" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/icon_fauacukum" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:id="@+id/txt_year_total"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="共0元" />
-
-            <TextView
-                android:id="@+id/txt_year_average"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="平均月工资0元" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/color_gray" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="@string/user_define_time" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:id="@+id/txt_start_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="@string/select_start_month"
-                android:textColor="@color/main_color" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/icon_fauacukum" />
-
-            <TextView
-                android:id="@+id/txt_end_month"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="@string/select_end_month"
-                android:textColor="@color/main_color" />
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:paddingBottom="60dp"
+                android:orientation="vertical"
+                tools:context=".ui.dashboard.DashboardFragment">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/icon_fauacukum" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
 
-            <TextView
-                android:id="@+id/txt_user_define_total"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="共0元" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"共："+total.totalSalary+"元"}'
+                        tools:text="共：0元" />
 
-            <TextView
-                android:id="@+id/txt_user_define_average"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="平均月工资0元" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{ "平均月工资："+(total.monthNum>0?total.totalSalary/total.monthNum:0)+"元"}'
+                        tools:text="平均月工资：0元" />
+                </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/color_gray" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"最高工资："+total.max+"元/月"}'
+                        tools:text="最高工资：0元/月" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{ "最低工资："+total.min+"元/月"}'
+                        tools:text="最低工资：0元/月" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"年终奖共："+totalBonus.totalBonus+"元"}'
+                        tools:text="年终奖共：0元" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{ "平均年终奖："+(totalBonus.bonusNum>0?totalBonus.totalBonus/totalBonus.bonusNum:0)+"元"}'
+                        tools:text="平均年终奖：0元" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"年终奖最高："+totalBonusMinMax.max+"元"}'
+                        tools:text="年终奖最高：0元" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{ "年终奖最低："+totalBonusMinMax.min+"元"}'
+                        tools:text="年终奖最低：0元" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/txt_select_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/this_year"
+                        android:textColor="@color/main_color" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/icon_fauacukum" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"共："+totalYear.totalSalary+"元"}'
+                        tools:text="共：0元" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"平均月工资："+(totalYear.monthNum>0?totalYear.totalSalary/totalYear.monthNum:0)+"元"}'
+                        tools:text="平均月工资：0元" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"最高工资："+totalYear.max+"元/月"}'
+                        tools:text="最高工资：0元/月" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"最低工资："+totalYear.min+"元/月"}'
+                        tools:text="最低工资：0元/月" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text='@{"年终奖："+(yearBonus==null?0:yearBonus)+"元"}'
+                    tools:text="年终奖：0元" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color_gray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/user_define_time" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/txt_start_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/select_start_month"
+                        android:textColor="@color/main_color" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/icon_fauacukum" />
+
+                    <TextView
+                        android:id="@+id/txt_end_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/select_end_month"
+                        android:textColor="@color/main_color" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/icon_fauacukum" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"共："+totalDefineYearMonth.totalSalary+"元"}'
+                        tools:text="共：0元" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"平均月工资："+(totalDefineYearMonth.monthNum>0?totalDefineYearMonth.totalSalary/totalDefineYearMonth.monthNum:0)+"元"}'
+                        tools:text="平均月工资：0元" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"最高工资："+totalDefineYearMonth.max+"元/月"}'
+                        tools:text="最高工资：0元/月" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text='@{"最低工资："+totalDefineYearMonth.min+"元/月"}'
+                        tools:text="最低工资：0元/月" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color_gray" />
 
 
-    </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
 </layout>
